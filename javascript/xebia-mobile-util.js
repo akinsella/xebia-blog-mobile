@@ -26,9 +26,17 @@
         return linkify(result);
     }
 
+    function sortAuthorByName(author1, author2) {
+         return author1.name > author2.name ? 1 : -1;
+    }
+
     function sortTagByName(tag1, tag2) {
          return tag1.name > tag2.name ? 1 : -1;
-    };
+    }
+
+    function sortCategoryByName(cat1, cat2) {
+         return cat1.name > cat2.name ? 1 : -1;
+    }
 
     function fixLinkIssue() {
         $('[data-role=content] a').addClass("ui-link");
