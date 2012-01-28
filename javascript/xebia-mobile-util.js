@@ -19,6 +19,12 @@
         return replacedText;
     }
 
+    function decodeHtmlEntities(encodedContent) {
+        var decodedContent = $("<div/>").html(encodedContent).text();
+
+        return decodedContent;
+    }
+
     function stripTags(content) {
 
         var result = content.replace(/(<([^>]+)>)/ig,"").replace(/\r\n/g, '<br>').replace(/\r/g, '<br>').replace(/\n/g, '<br>');

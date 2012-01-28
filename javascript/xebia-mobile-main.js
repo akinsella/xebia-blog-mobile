@@ -344,7 +344,7 @@ function loadPostDetailContent(url, postId) {
 
         $.each(post.comments, function(i, comment) {
             var title = '<p></p><a href="' + comment.url + '" rel="external">' + comment.name + '</a></p>';
-            var subtitle = '<p class="postCommentsItemContent"><em>' + stripTags(comment.content) + '</em></p>';
+            var subtitle = '<p class="postCommentsItemContent"><em>' + decodeHtmlEntities(comment.content) + '</em></p>';
             var aside = '<div class="postCommentsItemAside"><p><em>' + comment.date.substr(0, 10) + '</em></p></div>';
             itemsContent += '<div class="postCommentsItem">' + aside + title + subtitle + '</div>';
         });
@@ -359,7 +359,7 @@ function loadPostDetailContent(url, postId) {
 function loadInsightContent() {
 
     insightTitle = fetch('insightTitle');
-    insightContent = fetch('insightContent');
+    insightContent = decodeHtmlEntities(fetch('insightContent'));
     insightUrl = fetch('insightUrl');
 
 
